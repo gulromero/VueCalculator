@@ -12,18 +12,18 @@
   <title>Gülsüm's genius calculator</title>
 
   <style>
-    body{
+    body {
       background-color: rgb(240, 180, 240);
     }
 
-    input, select, button{
+    input, select, button {
       border-radius: 10px;
       margin: 10px;
       padding: 10px;
       border-color: purple;
     }
 
-    #app{
+    #app {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -31,7 +31,7 @@
       margin-top: 200px;
     }
 
-    h1{
+    h1 {
       text-align: center;
       color: rgb(255, 255, 255);
       font-style: italic;
@@ -46,52 +46,18 @@
   <img src="/images/hehecalc.png" style="display: block; margin-left: auto; margin-right: auto; width: 15%; margin-bottom: 0px;" />
 
   <div id='app'>
-  <input type="text" v-model.number="number1" placeholder="Type a number">
-  <select v-model="operator" name="operator">
-    <option value="add">+</option>
-    <option value="subtract">-</option>
-    <option value="multiply">*</option>
-    <option value="divide">/</option>
-  </select>
-  <input type="text" v-model.number="number2" placeholder="Type another number">
-  <button @click="calculate">=</button>
-  {{result}}
-</div>
+    <input type="text" v-model.number="number1" placeholder="Type a number" id="input1Id">
+    <select v-model="operator" name="operator" id="selectId">
+      <option value="add" id="addId">+</option>
+      <option value="subtract" id="subtractId">-</option>
+      <option value="multiply" id="multiplyId">*</option>
+      <option value="divide" id="divideId">/</option>
+    </select>
+    <input type="text" v-model.number="number2" placeholder="Type another number" id="input2Id">
+    <button @click="calculate" id="CalculateButtonId">=</button>
+    {{result}}
+  </div>
 
-<script src="js/index.js"></script>
-<script>
-  const app = Vue.createApp({
-    data() {
-      return {
-        number1: 0,
-        number2: 0,
-        operator: 'add',
-        result: 0
-      };
-    },
-    methods: {
-      calculate() {
-        switch(this.operator) {
-          case 'add':
-            this.result = this.number1 + this.number2;
-            break;
-          case 'subtract':
-            this.result = this.number1 - this.number2;
-            break;
-          case 'multiply':
-            this.result = this.number1 * this.number2;
-            break;
-          case 'divide':
-            this.result = this.number1 / this.number2;
-            break;
-          default:
-            this.result = 0;
-        }
-      }
-    }
-  });
-
-  app.mount('#app');
-</script>
+  <script src="index.js"></script>
 </body>
 </html>
